@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work – visioMEDIA</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #e8e8b8;
+    --black: #000000;
+    --grey: #333333;
+    --newgrey: #999999;
+    --accent: #fbf6f2;
+    --green: #5C6E4A;
+    --white: #ffffff;
+    --section-pad: 100px 5%;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5%;
+    background: rgba(232,232,184,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  nav ul a {
+    text-decoration: none;
+    color: var(--grey);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--black); }
+
+  .nav-cta {
+    background: var(--black);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--green) !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    padding: 160px 5% 80px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--accent) 1px, transparent 1px),
+      linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--white);
+  }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 12vw, 160px);
+    line-height: 0.9;
+    letter-spacing: 1px;
+    color: var(--black);
+    margin-bottom: 28px;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--grey);
+    max-width: 520px;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  .hero-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 60px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var (--grey);
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--green);
+  }
+
+  /* ── SHARED SECTION STYLES ── */
+  section { padding: var(--section-pad); }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 14px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--white);
+  }
+
+  .section-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 0.95;
+    color: var(--black);
+    margin-bottom: 14px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--grey);
+    max-width: 480px;
+    line-height: 1.75;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+    margin: 0 5%;
+  }
+
+  /* ── WEBSITE PROJECTS ── */
+  #websites { background: var(--bg); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid var(--bg);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px var(--newgrey);
+  }
+
+  .project-thumb {
+    aspect-ratio: 16 / 9;
+    background: var(--bg);
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+  /* Placeholder browser mockup inside card */
+  .browser-mock {
+    width: 100%;
+    height: 100%;
+    background: #f0f0e4;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .browser-bar {
+    background: #deded4;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .browser-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .browser-dot.r { background: #ff6b6b; }
+  .browser-dot.y { background: #ffd93d; }
+  .browser-dot.g { background: #6bcb77; }
+
+  .browser-url {
+    margin-left: 8px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 4px;
+    height: 14px;
+    flex: 1;
+    max-width: 180px;
+  }
+
+  .browser-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: rgba(0,0,0,0.15);
+    letter-spacing: 1px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* Individual project color schemes */
+  .project-card:nth-child(1) .browser-mock { background: #1a1a2e; }
+  .project-card:nth-child(1) .browser-bar { background: #16213e; }
+  .project-card:nth-child(1) .browser-url { background: rgba(255,255,255,0.1); }
+  .project-card:nth-child(1) .browser-content { color: rgba(255,255,255,0.2); }
+
+  .project-card:nth-child(2) .browser-mock { background: #fafaf5; }
+  .project-card:nth-child(2) .browser-bar { background: #efefea; }
+
+  .project-card:nth-child(3) .browser-mock { background: #2d1b4e; }
+  .project-card:nth-child(3) .browser-bar { background: #231540; }
+  .project-card:nth-child(3) .browser-url { background: rgba(255,255,255,0.1); }
+  .project-card:nth-child(3) .browser-content { color: rgba(255,255,255,0.2); }
+
+  .project-card:nth-child(4) .browser-mock { background: #0d2b1e; }
+  .project-card:nth-child(4) .browser-bar { background: #0a2218; }
+  .project-card:nth-child(4) .browser-url { background: rgba(255,255,255,0.1); }
+  .project-card:nth-child(4) .browser-content { color: rgba(255,255,255,0.2); }
+
+  .project-info {
+    padding: 28px 28px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-type {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    background: rgba(92,110,74,0.1);
+    border-radius: 100px;
+    padding: 4px 12px;
+    margin-bottom: 14px;
+    width: fit-content;
+  }
+
+  .project-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+
+  .btn-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--black);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    width: fit-content;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-view:hover {
+    background: var(--green);
+    transform: translateY(-1px);
+  }
+
+  .btn-view-arrow {
+    font-size: 14px;
+    transition: transform 0.2s;
+  }
+
+  .btn-view:hover .btn-view-arrow { transform: translateX(3px); }
+
+  /* ── DESIGNS / POSTERS ── */
+  #designs { background: var(--black); }
+  #designs .section-heading { color: var(--white); }
+  #designs .section-desc { color: rgba(255,255,255,0.45); }
+  #designs .section-label { color: rgba(255,255,255,0.35); }
+  #designs .section-label::before { background: rgba(255,255,255,0.2); }
+
+  .designs-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .design-item {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.25s;
+  }
+
+  .design-item:hover { transform: scale(1.02); }
+
+  .design-item:nth-child(1) { grid-column: span 5; }
+  .design-item:nth-child(2) { grid-column: span 4; }
+  .design-item:nth-child(3) { grid-column: span 3; }
+  .design-item:nth-child(4) { grid-column: span 4; }
+  .design-item:nth-child(5) { grid-column: span 5; }
+  .design-item:nth-child(6) { grid-column: span 3; }
+
+  .design-placeholder {
+    aspect-ratio: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Poster colour variations */
+  .design-item:nth-child(1) .design-placeholder { background: linear-gradient(145deg, #1c1c2e, #2d2b55); }
+  .design-item:nth-child(2) .design-placeholder { background: linear-gradient(145deg, #3a1c00, #7a3600); }
+  .design-item:nth-child(3) .design-placeholder { background: linear-gradient(145deg, #0d2b1e, #1a5c3a); }
+  .design-item:nth-child(4) .design-placeholder { background: linear-gradient(145deg, #2b0a1e, #6b1a48); }
+  .design-item:nth-child(5) .design-placeholder { background: linear-gradient(145deg, #0a1929, #1a3a5c); }
+  .design-item:nth-child(6) .design-placeholder { background: linear-gradient(145deg, #1e1e0a, #4a4a1e); }
+
+  .design-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+
+  .design-label-inner {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+  }
+
+  .design-tag {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(6px);
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── LOGOS ── */
+  #logos { background: var(--bg); }
+
+  .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .logo-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1.5px solid rgba(0,0,0,0.07);
+    aspect-ratio: 3 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+
+  .logo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: rgba(92,110,74,0.3);
+  }
+
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .logo-card:nth-child(1) .logo-icon { background: #1a1a2e; }
+  .logo-card:nth-child(2) .logo-icon { background: #5C6E4A; }
+  .logo-card:nth-child(3) .logo-icon { background: #7a3600; }
+  .logo-card:nth-child(4) .logo-icon { background: #2b0a1e; }
+  .logo-card:nth-child(5) .logo-icon { background: #0a1929; }
+  .logo-card:nth-child(6) .logo-icon { background: #3a0a0a; }
+
+  .logo-brand-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--grey);
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .logo-type-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.3);
+  }
+
+  /* ── WHAT WE FOCUS ON ── */
+  #focus { background: var(--green); }
+
+  #focus .section-label { color: rgba(255,255,255,0.4); }
+  #focus .section-label::before { background: rgba(255,255,255,0.25); }
+  #focus .section-heading { color: var(--white); }
+
+  .focus-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .focus-intro {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+
+  .focus-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .focus-point {
+    background: rgba(0,0,0,0.15);
+    padding: 32px 28px;
+    transition: background 0.2s;
+  }
+
+  .focus-point:hover { background: rgba(0,0,0,0.25); }
+
+  .focus-point-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .focus-point-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .focus-point-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--bg);
+    text-align: center;
+    padding: 120px 5%;
+  }
+
+  .cta-inner { max-width: 640px; margin: 0 auto; }
+
+  .cta-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.95;
+    color: var(--black);
+    margin-bottom: 20px;
+  }
+
+  .cta-sub {
+    font-size: 17px;
+    color: var(--grey);
+    line-height: 1.7;
+    margin-bottom: 44px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--black);
+    color: var(--white);
+    padding: 16px 40px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(92,110,74,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--black);
+    padding: 16px 40px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid rgba(0,0,0,0.2);
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--black);
+    background: rgba(0,0,0,0.04);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 60px 5% 40px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .footer-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    max-width: 260px;
+    line-height: 1.6;
+  }
+
+  .footer-contact h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 16px;
+  }
+
+  .footer-contact a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+
+  .footer-contact a:hover { color: var(--bg); }
+
+  .contact-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-closing { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-closing span { color: var(--bg); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow  { animation: fadeUp 0.6s ease both 0.1s; }
+  .hero-headline { animation: fadeUp 0.7s ease both 0.2s; }
+  .hero-sub      { animation: fadeUp 0.6s ease both 0.35s; }
+  .hero-scroll-hint { animation: fadeUp 0.5s ease both 0.5s; }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    .designs-grid { grid-template-columns: 1fr 1fr; }
+    .design-item { grid-column: span 1 !important; }
+    .focus-layout { grid-template-columns: 1fr; gap: 40px; }
+    .focus-points { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .designs-grid { grid-template-columns: 1fr; }
+    .logos-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">visio<span>MEDIA</span></a>
+  <ul>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#why">Why Us</a></li>
+    <li><a href="our-work.html" style="color: var(--black); font-weight:700;">Our Work</a></li>
+    <li><a href="index.html#cta" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Portfolio</div>
+    <h1 class="hero-headline">Our<br>Work.</h1>
+    <p class="hero-sub">Examples of websites and designs created to help businesses grow, look professional, and attract more customers.</p>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WEBSITES -->
+<section id="websites">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Websites</div>
+      <h2 class="section-heading">Built to bring<br>in customers</h2>
+    </div>
+    <p class="section-desc">Each website is designed with one goal in mind: helping the business owner get more leads and look professional online.</p>
+  </div>
+
+  <div class="projects-grid">
+    <!-- Project 1 -->
+     <div class="project-card reveal">
+  <div class="project-thumb">
+
+    <img src="images/venomfit.png" alt="VenomFit Website Preview">
+
+    <div class="browser-bar">
+      <div class="browser-dot r"></div>
+      <div class="browser-dot y"></div>
+      <div class="browser-dot g"></div>
+      <div class="browser-url"></div>
+    </div>
+
+    <div class="browser-content">VENOMFIT</div>
+
+  </div>
+
+  <div class="project-info">
+    <span class="project-type">Landing Page</span>
+    <div class="project-title">VenomFit</div>
+    <p class="project-desc">
+      A high-conversion landing page for VenomFit, designed to turn visitors into committed members through clear messaging, strong visual identity, and a streamlined sign-up experience.
+    </p>
+    <a href="https://tebogo-matseding.github.io/venomfit-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+      View Website <span class="btn-view-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+    <!-- Project 2 -->
+    <div class="project-card reveal">
+  <div class="project-thumb">
+
+    <img src="images/tastesosweet.png" alt="TasteSoSweet Website Preview">
+
+    <div class="browser-bar">
+      <div class="browser-dot r"></div>
+      <div class="browser-dot y"></div>
+      <div class="browser-dot g"></div>
+      <div class="browser-url"></div>
+    </div>
+
+    <div class="browser-content">TASTESOSWEET</div>
+
+  </div>
+
+  <div class="project-info">
+    <span class="project-type">Business Website</span>
+    <div class="project-title">TasteSoSweet</div>
+    <p class="project-desc">
+      A vibrant, modern website designed for TasteSoSweet to showcase its brand, highlight its offerings, and create an engaging online experience that encourages customers to explore and place orders.
+    </p>
+    <a href="https://tebogo-matseding.github.io/tastesosweet-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+      View Website <span class="btn-view-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+    <!-- Project 3 -->
+    <div class="project-card reveal">
+  <div class="project-thumb">
+
+    <img src="images/tebogomtech.png" alt="TebogoMTech Website Preview">
+
+    <div class="browser-bar">
+      <div class="browser-dot r"></div>
+      <div class="browser-dot y"></div>
+      <div class="browser-dot g"></div>
+      <div class="browser-url"></div>
+    </div>
+
+    <div class="browser-content">TEBOGOMTECH</div>
+
+  </div>
+
+  <div class="project-info">
+    <span class="project-type">Portfolio Website</span>
+    <div class="project-title">TebogoMTech</div>
+    <p class="project-desc">
+      A personal portfolio website designed to showcase technical projects, certifications, and skills while building credibility and positioning as a professional in tech and digital solutions.
+    </p>
+    <a href="https://tebogomtech.co.za" target="_blank" rel="noopener noreferrer" class="btn-view">
+      View Website <span class="btn-view-arrow">→</span>
+    </a>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DESIGNS & POSTERS -->
+<section id="designs">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Designs & Posters</div>
+      <h2 class="section-heading">Visuals that<br>stop the scroll</h2>
+    </div>
+    <p class="section-desc">Marketing materials designed to represent your brand professionally and get your audience to pay attention.</p>
+  </div>
+
+  <div class="designs-grid">
+    <div class="design-item reveal">
+      <div class="design-placeholder">
+        <div class="design-icon">✦</div>
+        <div class="design-label-inner">Promo Poster</div>
+        <span class="design-tag">Promo Poster</span>
+      </div>
+    </div>
+    <div class="design-item reveal">
+      <div class="design-placeholder">
+        <div class="design-icon">◎</div>
+        <div class="design-label-inner">Social Media Post</div>
+        <span class="design-tag">Social Media</span>
+      </div>
+    </div>
+    <div class="design-item reveal">
+      <div class="design-placeholder">
+        <div class="design-icon">↗</div>
+        <div class="design-label-inner">Event Flyer</div>
+        <span class="design-tag">Event Flyer</span>
+      </div>
+    </div>
+    <div class="design-item reveal">
+      <div class="design-placeholder">
+        <div class="design-icon">❋</div>
+        <div class="design-label-inner">Brand Campaign</div>
+        <span class="design-tag">Brand Campaign</span>
+      </div>
+    </div>
+    <div class="design-item reveal">
+      <div class="design-placeholder">
+        <div class="design-icon">⬡</div>
+        <div class="design-label-inner">Product Highlight</div>
+        <span class="design-tag">Product Visual</span>
+      </div>
+    </div>
+    <div class="design-item reveal">
+      <div class="design-placeholder">
+        <div class="design-icon">✺</div>
+        <div class="design-label-inner">Story Design</div>
+        <span class="design-tag">Story / Reel Cover</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="background: rgba(255,255,255,0.06); margin: 0 5%;"></div>
+
+<!-- LOGOS -->
+<section id="logos" style="background: var(--black); padding-bottom: 100px;">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label" style="color: rgba(255,255,255,0.35);">
+        <span style="display:inline-flex; align-items:center; gap:10px;">
+          <span style="display:block; width:18px; height:1.5px; background: rgba(255,255,255,0.2);"></span>
+          Logos
+        </span>
+      </div>
+      <h2 class="section-heading" style="color: var(--white);">Brands we've<br>brought to life</h2>
+    </div>
+    <p class="section-desc" style="color: rgba(255,255,255,0.45);">Every logo is crafted to be memorable, professional, and true to what the business stands for.</p>
+  </div>
+
+  <div class="logos-grid">
+    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
+      <div class="logo-icon">AP</div>
+      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Apex Fitness</div>
+      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Fitness & Wellness</div>
+    </div>
+    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
+      <div class="logo-icon">BL</div>
+      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Bloom Bakery</div>
+      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Food & Hospitality</div>
+    </div>
+    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
+      <div class="logo-icon">NV</div>
+      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Nova Legal</div>
+      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Professional Services</div>
+    </div>
+    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
+      <div class="logo-icon">PM</div>
+      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">PrimeMed Clinic</div>
+      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Healthcare</div>
+    </div>
+    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
+      <div class="logo-icon">TR</div>
+      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Terra Builds</div>
+      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Construction</div>
+    </div>
+    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
+      <div class="logo-icon">LX</div>
+      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Luxe Interiors</div>
+      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Interior Design</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE FOCUS ON -->
+<section id="focus">
+  <div class="focus-layout">
+    <div class="reveal">
+      <div class="section-label">Our Approach</div>
+      <h2 class="section-heading" style="color: var(--white);">What we<br>focus on</h2>
+      <p class="focus-intro">Good design isn't about complexity. It's about making your business look credible and making it easy for customers to choose you.</p>
+    </div>
+
+    <div class="focus-points reveal">
+      <div class="focus-point">
+        <div class="focus-point-icon">✦</div>
+        <div class="focus-point-title">Clean & Professional Design</div>
+        <p class="focus-point-desc">Everything we create looks polished and trustworthy. First impressions matter — yours should say "this is a business I can trust."</p>
+      </div>
+      <div class="focus-point">
+        <div class="focus-point-icon">◎</div>
+        <div class="focus-point-title">Clear Messaging</div>
+        <p class="focus-point-desc">We make sure your customers instantly understand what you do, who you help, and why you're the right choice — without confusion.</p>
+      </div>
+      <div class="focus-point">
+        <div class="focus-point-icon">↗</div>
+        <div class="focus-point-title">Designed to Attract Customers</div>
+        <p class="focus-point-desc">Every visual and page is built to do one thing: move the right person one step closer to becoming your customer.</p>
+      </div>
+      <div class="focus-point">
+        <div class="focus-point-icon">⬡</div>
+        <div class="focus-point-title">Simple & Effective Systems</div>
+        <p class="focus-point-desc">No complicated tech, no bloated features. Just simple online systems that work in the background so you can focus on your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner reveal">
+    <span class="cta-eyebrow">Ready to Grow?</span>
+    <h2 class="cta-title">Want something<br>like this?</h2>
+    <p class="cta-sub">Book a free 30-minute consultation. We'll understand your business, show you what's possible, and get you moving.</p>
+    <div class="cta-actions">
+      <a href="mailto:hello@visiomedia.co.za" class="btn-primary">Book a Consultation →</a>
+      <a href="https://wa.me/27814633459" target="_blank" rel="noopener noreferrer" class="btn-secondary">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">visioMEDIA</div>
+      <p class="footer-tagline">Simple systems that help small businesses get more customers.</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Get in Touch</h4>
+      <a href="mailto:hello@visiomedia.co.za">
+        <div class="contact-icon">✉</div>
+        hello@visiomedia.co.za
+      </a>
+      <a href="https://wa.me/27814633459" target="_blank" rel="noopener noreferrer">
+        <div class="contact-icon">✆</div>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 visioMEDIA. All rights reserved.</p>
+    <p class="footer-closing">Made for businesses that want to <span>grow.</span></p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // Stagger siblings
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+        const index = siblings.indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
