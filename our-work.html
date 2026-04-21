@@ -154,7 +154,7 @@
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var (--grey);
+    color: var(--grey);
   }
 
   .scroll-line {
@@ -248,12 +248,12 @@
     border-bottom: 1px solid rgba(0,0,0,0.06);
   }
 
-.project-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
   /* Placeholder browser mockup inside card */
   .browser-mock {
@@ -410,8 +410,6 @@
     transition: transform 0.25s;
   }
 
-  .design-item:hover { transform: scale(1.02); }
-
   .design-item:nth-child(1) { grid-column: span 5; }
   .design-item:nth-child(2) { grid-column: span 4; }
   .design-item:nth-child(3) { grid-column: span 3; }
@@ -419,119 +417,148 @@
   .design-item:nth-child(5) { grid-column: span 5; }
   .design-item:nth-child(6) { grid-column: span 3; }
 
-  .design-placeholder {
-    aspect-ratio: 4 / 5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+  /* ── DESIGN IMAGE WRAPPER ── */
+.design-img-wrap {
     position: relative;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
+    width: 100%;
+    border-radius: 16px
   }
 
-  /* Poster colour variations */
-  .design-item:nth-child(1) .design-placeholder { background: linear-gradient(145deg, #1c1c2e, #2d2b55); }
-  .design-item:nth-child(2) .design-placeholder { background: linear-gradient(145deg, #3a1c00, #7a3600); }
-  .design-item:nth-child(3) .design-placeholder { background: linear-gradient(145deg, #0d2b1e, #1a5c3a); }
-  .design-item:nth-child(4) .design-placeholder { background: linear-gradient(145deg, #2b0a1e, #6b1a48); }
-  .design-item:nth-child(5) .design-placeholder { background: linear-gradient(145deg, #0a1929, #1a3a5c); }
-  .design-item:nth-child(6) .design-placeholder { background: linear-gradient(145deg, #1e1e0a, #4a4a1e); }
-
-  .design-icon {
-    font-size: 36px;
-    margin-bottom: 16px;
-    opacity: 0.4;
+  /* Fallback background shown while image loads or if src is missing */
+  .design-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
 
-  .design-label-inner {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 1.5px;
-    color: rgba(255,255,255,0.2);
-    text-align: center;
+  .design-item:nth-child(1) .design-img-wrap::before { background: linear-gradient(145deg, #1c1c2e, #2d2b55); }
+  .design-item:nth-child(2) .design-img-wrap::before { background: linear-gradient(145deg, #3a1c00, #7a3600); }
+  .design-item:nth-child(3) .design-img-wrap::before { background: linear-gradient(145deg, #0d2b1e, #1a5c3a); }
+  .design-item:nth-child(4) .design-img-wrap::before { background: linear-gradient(145deg, #2b0a1e, #6b1a48); }
+  .design-item:nth-child(5) .design-img-wrap::before { background: linear-gradient(145deg, #0a1929, #1a3a5c); }
+  .design-item:nth-child(6) .design-img-wrap::before { background: linear-gradient(145deg, #1e1e0a, #4a4a1e); }
+
+  .design-img-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Zoom the image on hover, not the whole card */
+  .design-item:hover {
+    transform: none;
+  }
+
+  .design-item:hover .design-img-wrap img {
+    transform: scale(1.05);
   }
 
   .design-tag {
     position: absolute;
     bottom: 14px;
     left: 14px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.52);
     backdrop-filter: blur(6px);
-    color: rgba(255,255,255,0.7);
+    -webkit-backdrop-filter: blur(6px);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 6px 12px;
     border-radius: 100px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+    z-index: 2;
   }
 
   /* ── LOGOS ── */
-  #logos { background: var(--bg); }
+  #logos { background: var(--black); }
+  #logos .section-heading { color: var(--white); }
+  #logos .section-desc { color: rgba(255,255,255,0.45); }
+  #logos .section-label { color: rgba(255,255,255,0.35); }
+  #logos .section-label::before { background: rgba(255,255,255,0.2); }
 
   .logos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
   }
 
-  .logo-card {
-    background: var(--white);
+  .logo-item {
     border-radius: 16px;
-    border: 1.5px solid rgba(0,0,0,0.07);
-    aspect-ratio: 3 / 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 24px;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    cursor: default;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.25s;
   }
 
-  .logo-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-    border-color: rgba(92,110,74,0.3);
+  .logo-img-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 16px;
   }
 
-  .logo-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: var(--white);
-    letter-spacing: 1px;
+  /* Fallback gradient shown while image loads or if src is missing */
+  .logo-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
 
-  .logo-card:nth-child(1) .logo-icon { background: #1a1a2e; }
-  .logo-card:nth-child(2) .logo-icon { background: #5C6E4A; }
-  .logo-card:nth-child(3) .logo-icon { background: #7a3600; }
-  .logo-card:nth-child(4) .logo-icon { background: #2b0a1e; }
-  .logo-card:nth-child(5) .logo-icon { background: #0a1929; }
-  .logo-card:nth-child(6) .logo-icon { background: #3a0a0a; }
+  .logo-item:nth-child(1) .logo-img-wrap::before { background: linear-gradient(145deg, #1a1a2e, #2d2b55); }
+  .logo-item:nth-child(2) .logo-img-wrap::before { background: linear-gradient(145deg, #0d2b1e, #1a5c3a); }
+  .logo-item:nth-child(3) .logo-img-wrap::before { background: linear-gradient(145deg, #3a1c00, #7a3600); }
+  .logo-item:nth-child(4) .logo-img-wrap::before { background: linear-gradient(145deg, #2b0a1e, #6b1a48); }
+  .logo-item:nth-child(5) .logo-img-wrap::before { background: linear-gradient(145deg, #0a1929, #1a3a5c); }
+  .logo-item:nth-child(6) .logo-img-wrap::before { background: linear-gradient(145deg, #1e1e0a, #4a4a1e); }
 
-  .logo-brand-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--grey);
-    text-align: center;
-    letter-spacing: 0.5px;
+  .logo-img-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .logo-type-tag {
-    font-size: 10px;
+  .logo-item:hover {
+    transform: none;
+  }
+
+  .logo-item:hover .logo-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .logo-tag {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: rgba(0, 0, 0, 0.52);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: rgba(0,0,0,0.3);
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+    z-index: 2;
   }
 
   /* ── WHAT WE FOCUS ON ── */
@@ -831,91 +858,77 @@
 
   <div class="projects-grid">
     <!-- Project 1 -->
-     <div class="project-card reveal">
-  <div class="project-thumb">
-
-    <img src="images/venomfit.png" alt="VenomFit Website Preview">
-
-    <div class="browser-bar">
-      <div class="browser-dot r"></div>
-      <div class="browser-dot y"></div>
-      <div class="browser-dot g"></div>
-      <div class="browser-url"></div>
+    <div class="project-card reveal">
+      <div class="project-thumb">
+        <img src="images/venomfit.png" alt="VenomFit Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">VENOMFIT</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type">Landing Page</span>
+        <div class="project-title">VenomFit</div>
+        <p class="project-desc">
+          A high-conversion landing page for VenomFit, designed to turn visitors into committed members through clear messaging, strong visual identity, and a streamlined sign-up experience.
+        </p>
+        <a href="https://tebogo-matseding.github.io/venomfit-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Website <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
     </div>
-
-    <div class="browser-content">VENOMFIT</div>
-
-  </div>
-
-  <div class="project-info">
-    <span class="project-type">Landing Page</span>
-    <div class="project-title">VenomFit</div>
-    <p class="project-desc">
-      A high-conversion landing page for VenomFit, designed to turn visitors into committed members through clear messaging, strong visual identity, and a streamlined sign-up experience.
-    </p>
-    <a href="https://tebogo-matseding.github.io/venomfit-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
-      View Website <span class="btn-view-arrow">→</span>
-    </a>
-  </div>
-</div>
 
     <!-- Project 2 -->
     <div class="project-card reveal">
-  <div class="project-thumb">
-
-    <img src="images/tastesosweet.png" alt="TasteSoSweet Website Preview">
-
-    <div class="browser-bar">
-      <div class="browser-dot r"></div>
-      <div class="browser-dot y"></div>
-      <div class="browser-dot g"></div>
-      <div class="browser-url"></div>
+      <div class="project-thumb">
+        <img src="images/tastesosweet.png" alt="TasteSoSweet Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">TASTESOSWEET</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type">Business Website</span>
+        <div class="project-title">TasteSoSweet</div>
+        <p class="project-desc">
+          A vibrant, modern website designed for TasteSoSweet to showcase its brand, highlight its offerings, and create an engaging online experience that encourages customers to explore and place orders.
+        </p>
+        <a href="https://tebogo-matseding.github.io/tastesosweet-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Website <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
     </div>
-
-    <div class="browser-content">TASTESOSWEET</div>
-
-  </div>
-
-  <div class="project-info">
-    <span class="project-type">Business Website</span>
-    <div class="project-title">TasteSoSweet</div>
-    <p class="project-desc">
-      A vibrant, modern website designed for TasteSoSweet to showcase its brand, highlight its offerings, and create an engaging online experience that encourages customers to explore and place orders.
-    </p>
-    <a href="https://tebogo-matseding.github.io/tastesosweet-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
-      View Website <span class="btn-view-arrow">→</span>
-    </a>
-  </div>
-</div>
 
     <!-- Project 3 -->
     <div class="project-card reveal">
-  <div class="project-thumb">
-
-    <img src="images/tebogomtech.png" alt="TebogoMTech Website Preview">
-
-    <div class="browser-bar">
-      <div class="browser-dot r"></div>
-      <div class="browser-dot y"></div>
-      <div class="browser-dot g"></div>
-      <div class="browser-url"></div>
+      <div class="project-thumb">
+        <img src="images/tebogomtech.png" alt="TebogoMTech Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">TEBOGOMTECH</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type">Portfolio Website</span>
+        <div class="project-title">TebogoMTech</div>
+        <p class="project-desc">
+          A personal portfolio website designed to showcase technical projects, certifications, and skills while building credibility and positioning as a professional in tech and digital solutions.
+        </p>
+        <a href="https://tebogomtech.co.za" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Website <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
     </div>
-
-    <div class="browser-content">TEBOGOMTECH</div>
-
   </div>
-
-  <div class="project-info">
-    <span class="project-type">Portfolio Website</span>
-    <div class="project-title">TebogoMTech</div>
-    <p class="project-desc">
-      A personal portfolio website designed to showcase technical projects, certifications, and skills while building credibility and positioning as a professional in tech and digital solutions.
-    </p>
-    <a href="https://tebogomtech.co.za" target="_blank" rel="noopener noreferrer" class="btn-view">
-      View Website <span class="btn-view-arrow">→</span>
-    </a>
-  </div>
-</div>
 </section>
 
 <div class="divider"></div>
@@ -931,100 +944,111 @@
   </div>
 
   <div class="designs-grid">
+
+    <!-- Design 1 — replace src with your image path -->
     <div class="design-item reveal">
-      <div class="design-placeholder">
-        <div class="design-icon">✦</div>
-        <div class="design-label-inner">Promo Poster</div>
+      <div class="design-img-wrap">
+        <img src="images/promoposter.png" alt="Promo Poster">
         <span class="design-tag">Promo Poster</span>
       </div>
     </div>
+
+    <!-- Design 2 — replace src with your image path -->
     <div class="design-item reveal">
-      <div class="design-placeholder">
-        <div class="design-icon">◎</div>
-        <div class="design-label-inner">Social Media Post</div>
+      <div class="design-img-wrap">
+        <img src="images/socialmedia.png"  alt="Social Media Post">
         <span class="design-tag">Social Media</span>
       </div>
     </div>
+
+    <!-- Design 3 — replace src with your image path -->
     <div class="design-item reveal">
-      <div class="design-placeholder">
-        <div class="design-icon">↗</div>
-        <div class="design-label-inner">Event Flyer</div>
+      <div class="design-img-wrap">
+        <img src="images/eventflyer.png" alt="Event Flyer">
         <span class="design-tag">Event Flyer</span>
       </div>
     </div>
+
+    <!-- Design 5 — replace src with your image path -->
     <div class="design-item reveal">
-      <div class="design-placeholder">
-        <div class="design-icon">❋</div>
-        <div class="design-label-inner">Brand Campaign</div>
+      <div class="design-img-wrap">
+        <img src="images/brandcampaign.png" alt="Brand Campaign">
         <span class="design-tag">Brand Campaign</span>
       </div>
     </div>
+    
+<!-- Design 4 — replace src with your image path -->
     <div class="design-item reveal">
-      <div class="design-placeholder">
-        <div class="design-icon">⬡</div>
-        <div class="design-label-inner">Product Highlight</div>
+      <div class="design-img-wrap">
+        <img src="images/productvisual.png" alt="Product Highlight">
         <span class="design-tag">Product Visual</span>
       </div>
     </div>
+
+    <!-- Design 6 — replace src with your image path -->
     <div class="design-item reveal">
-      <div class="design-placeholder">
-        <div class="design-icon">✺</div>
-        <div class="design-label-inner">Story Design</div>
+      <div class="design-img-wrap">
+        <img src="images/storyreelcover.png" alt="Story Design">
         <span class="design-tag">Story / Reel Cover</span>
       </div>
     </div>
+
   </div>
 </section>
 
 <div class="divider" style="background: rgba(255,255,255,0.06); margin: 0 5%;"></div>
 
 <!-- LOGOS -->
-<section id="logos" style="background: var(--black); padding-bottom: 100px;">
+<section id="logos">
   <div class="section-header reveal">
     <div>
-      <div class="section-label" style="color: rgba(255,255,255,0.35);">
-        <span style="display:inline-flex; align-items:center; gap:10px;">
-          <span style="display:block; width:18px; height:1.5px; background: rgba(255,255,255,0.2);"></span>
-          Logos
-        </span>
-      </div>
-      <h2 class="section-heading" style="color: var(--white);">Brands we've<br>brought to life</h2>
+      <div class="section-label">Logos</div>
+      <h2 class="section-heading">Brands we've<br>brought to life</h2>
     </div>
-    <p class="section-desc" style="color: rgba(255,255,255,0.45);">Every logo is crafted to be memorable, professional, and true to what the business stands for.</p>
+    <p class="section-desc">Every logo is crafted to be memorable, professional, and true to what the business stands for.</p>
   </div>
 
   <div class="logos-grid">
-    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
-      <div class="logo-icon">AP</div>
-      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Apex Fitness</div>
-      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Fitness & Wellness</div>
+
+    <!-- Logo 1 — replace src with your image path -->
+    <div class="logo-item reveal">
+      <div class="logo-img-wrap">
+        <img src="logos/tastesosweetlogo.png" alt="TasteSoSweet">
+        <span class="logo-tag">TasteSoSweet</span>
+      </div>
     </div>
-    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
-      <div class="logo-icon">BL</div>
-      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Bloom Bakery</div>
-      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Food & Hospitality</div>
+
+    <!-- Logo 2 — replace src with your image path -->
+    <div class="logo-item reveal">
+      <div class="logo-img-wrap">
+        <img src="logos/bayalunganetworkslogo.png" alt="Bayalunga Networks">
+        <span class="logo-tag">Bayalunga Networks</span>
+      </div>
     </div>
-    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
-      <div class="logo-icon">NV</div>
-      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Nova Legal</div>
-      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Professional Services</div>
+
+    <!-- Logo 3 — replace src with your image path -->
+    <div class="logo-item reveal">
+      <div class="logo-img-wrap">
+        <img src="logos/siyakhanetworkslogo.png" alt="Siyakha Networks">
+        <span class="logo-tag">Siyakha Networks</span>
+      </div>
     </div>
-    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
-      <div class="logo-icon">PM</div>
-      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">PrimeMed Clinic</div>
-      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Healthcare</div>
+
+    <!-- Logo 4 — replace src with your image path -->
+    <div class="logo-item reveal">
+      <div class="logo-img-wrap">
+        <img src="logos/smokershublogo.png" alt="Smokers Hub">
+        <span class="logo-tag">Smoker's Hub</span>
+      </div>
     </div>
-    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
-      <div class="logo-icon">TR</div>
-      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Terra Builds</div>
-      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Construction</div>
+
+    <!-- Logo 5 — replace src with your image path -->
+    <div class="logo-item reveal">
+      <div class="logo-img-wrap">
+        <img src="logos/geminishotslogo.png" alt="Gemini Shots">
+        <span class="logo-tag">GeminiShots</span>
+      </div>
     </div>
-    <div class="logo-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.07);">
-      <div class="logo-icon">LX</div>
-      <div class="logo-brand-name" style="color: rgba(255,255,255,0.6);">Luxe Interiors</div>
-      <div class="logo-type-tag" style="color: rgba(255,255,255,0.25);">Interior Design</div>
-    </div>
-  </div>
 </section>
 
 <!-- WHAT WE FOCUS ON -->
@@ -1105,7 +1129,6 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // Stagger siblings
         const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
         const index = siblings.indexOf(entry.target);
         setTimeout(() => {
