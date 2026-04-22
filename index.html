@@ -818,11 +818,11 @@
   </div>
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-num">4<span>+</span></div>
+      <div class="stat-num"><span class="count-num" data-target="4">0</span><span>+</span></div>
       <div class="stat-label">Core Services</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-num"><span class="count-num" data-target="100">0</span><span>%</span></div>
       <div class="stat-label">Results Focused</div>
     </div>
     <div class="stat-item">
@@ -1026,6 +1026,34 @@
       document.body.style.overflow = '';
     });
   });
+
+  // Count-up animation
+  function animateCount(el) {
+    const target = +el.dataset.target;
+    const duration = target === 100 ? 1920 : 960;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.count-num').forEach(animateCount);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
 </script>
 </body>
 </html>
