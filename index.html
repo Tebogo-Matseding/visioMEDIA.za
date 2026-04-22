@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logos/visiomedialogo.png">
 <title>visioMEDIA - Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -45,10 +47,10 @@
   }
 
   .logo {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-weight: 700;
     font-size: 22px;
-    letter-spacing: -0.5px;
+    letter-spacing: 1.4px;
     color: var(--black);
     text-decoration: none;
   }
@@ -115,7 +117,7 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--accent);
+    background: var(--black);
   }
 
   .hero-headline {
@@ -251,7 +253,7 @@
     font-weight: 700;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--black);
     margin-bottom: 16px;
   }
 
@@ -293,15 +295,15 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2px;
-    border: 1.5px solid var(--black);
+    border: 1.5px solid rgba(0,0,0,0.06);
     border-radius: 20px;
     overflow: hidden;
   }
 
   .service-card {
-    background: var(--bg);
+    background: rgba(0,0,0,0.06);
     padding: 40px 36px;
-    border-right: 1.5px solid rgba(0,0,0,0.12);
+    border-right: 1.5px solid var(--accent);
     transition: background 0.25s;
     position: relative;
     overflow: hidden;
@@ -329,7 +331,7 @@
   .service-icon {
     width: 48px;
     height: 48px;
-    background: rgb(0, 0, 0,0.06);
+    background: rgba(0,0,0,0.06);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -607,7 +609,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: #ffffff59;
     margin-bottom: 16px;
   }
 
@@ -656,15 +658,100 @@
 
   .footer-closing span { color: var(--accent); }
 
+  /* ── HAMBURGER BUTTON ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    z-index: 200;
+  }
+
+  .hamburger:hover { background: rgba(0,0,0,0.06); }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 99;
+    background: rgba(232,232,184,0.98);
+    backdrop-filter: blur(12px);
+    padding: 90px 5% 40px;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--grey);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--black); }
+
+  .mobile-menu .mob-cta {
+    margin-top: 12px;
+    display: inline-flex;
+    justify-content: center;
+    background: var(--black);
+    color: var(--white) !important;
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-bottom: none !important;
+  }
+
+  .mobile-menu .mob-cta:hover { background: var(--green) !important; }
+
   /* ── MOBILE ── */
   @media (max-width: 768px) {
     nav ul { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: flex; }
     .hero-deco { display: none; }
     .services-grid { grid-template-columns: 1fr; }
     .service-card { border-right: none; border-bottom: 1.5px solid rgba(0,0,0,0.1); }
     .service-card:last-child { border-bottom: none; }
     .how-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
     .how-steps::before { display: none; }
+    .step:not(:last-child)::after { display: none; }
     .why-layout { grid-template-columns: 1fr; gap: 48px; }
     .footer-top { flex-direction: column; }
   }
@@ -699,7 +786,21 @@
     <li><a href="our-work.html">Our Work</a></li>
     <li><a href="#cta" class="nav-cta">Book a Call</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#how" class="mob-link">How It Works</a>
+  <a href="#why" class="mob-link">Why Us</a>
+  <a href="our-work.html" class="mob-link">Our Work</a>
+  <a href="#cta" class="mob-cta">Book a Call</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -887,12 +988,14 @@
     </div>
     <div class="footer-contact">
       <h4>Get in Touch</h4>
-      <a href="mailto:hello@visiomedia.co.za">
+      <a href="mailto:visiomedia.za@gmail.com">
         <div class="contact-icon">✉</div>
-        hello@visiomedia.co.za
+          visiomedia.za@gmail.com
       </a>
       <a href="https://wa.me/27814633459">
-        <div class="contact-icon">✆</div>
+        <div class="contact-icon" style="background:#31303059;">
+          <img src="logos/whatsapplogo.png" alt="WhatsApp" style="width:18px;height:18px;object-fit:contain;">
+        </div>
         WhatsApp Us
       </a>
     </div>
@@ -903,5 +1006,26 @@
   </div>
 </footer>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close menu when a link is clicked
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>

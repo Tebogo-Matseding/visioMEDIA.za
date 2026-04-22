@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Work – visioMEDIA</title>
+<link rel="icon" href="logos/visiomedialogo.png">
+<title>visioMEDIA - Our Work</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,10 +47,10 @@
   }
 
   .logo {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-weight: 700;
     font-size: 22px;
-    letter-spacing: -0.5px;
+    letter-spacing: 1.4px;
     color: var(--black);
     text-decoration: none;
   }
@@ -125,7 +127,7 @@
     display: block;
     width: 24px;
     height: 1.5px;
-    background: var(--white);
+    background: var(--black);
   }
 
   .hero-headline {
@@ -183,7 +185,7 @@
     display: block;
     width: 18px;
     height: 1.5px;
-    background: var(--white);
+    background: var(--black);
   }
 
   .section-heading {
@@ -393,8 +395,8 @@
   #designs { background: var(--black); }
   #designs .section-heading { color: var(--white); }
   #designs .section-desc { color: rgba(255,255,255,0.45); }
-  #designs .section-label { color: rgba(255,255,255,0.35); }
-  #designs .section-label::before { background: rgba(255,255,255,0.2); }
+  #designs .section-label { color: var(--white); }
+  #designs .section-label::before { background: var(--white); }
 
   .designs-grid {
     display: grid;
@@ -484,8 +486,8 @@
   #logos { background: var(--black); }
   #logos .section-heading { color: var(--white); }
   #logos .section-desc { color: rgba(255,255,255,0.45); }
-  #logos .section-label { color: rgba(255,255,255,0.35); }
-  #logos .section-label::before { background: rgba(255,255,255,0.2); }
+  #logos .section-label { color: var(--white); }
+  #logos .section-label::before { background: var(--white); }
 
   .logos-grid {
     display: grid;
@@ -562,11 +564,11 @@
   }
 
   /* ── WHAT WE FOCUS ON ── */
-  #focus { background: var(--green); }
+  #focus { background: var(--bg); }
 
-  #focus .section-label { color: rgba(255,255,255,0.4); }
-  #focus .section-label::before { background: rgba(255,255,255,0.25); }
-  #focus .section-heading { color: var(--white); }
+  #focus .section-label { color: var(--black); }
+  #focus .section-label::before { background: var(--white); }
+  #focus .section-heading { color: var(--black); }
 
   .focus-layout {
     display: grid;
@@ -577,7 +579,7 @@
 
   .focus-intro {
     font-size: 16px;
-    color: rgba(255,255,255,0.6);
+    color: var(--grey);
     line-height: 1.75;
     margin-top: 20px;
   }
@@ -592,7 +594,7 @@
   }
 
   .focus-point {
-    background: rgba(0,0,0,0.15);
+    background: rgba(0,0,0,0.20);
     padding: 32px 28px;
     transition: background 0.2s;
   }
@@ -607,13 +609,13 @@
   .focus-point-title {
     font-size: 16px;
     font-weight: 700;
-    color: var(--white);
+    color: var(--black);
     margin-bottom: 8px;
   }
 
   .focus-point-desc {
     font-size: 14px;
-    color: rgba(255,255,255,0.55);
+    color: var(--grey);
     line-height: 1.65;
   }
 
@@ -631,7 +633,7 @@
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--green);
+    color: var(--black);
     display: block;
     margin-bottom: 20px;
   }
@@ -799,9 +801,91 @@
     transform: translateY(0);
   }
 
+  /* ── HAMBURGER BUTTON ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    z-index: 200;
+  }
+
+  .hamburger:hover { background: rgba(0,0,0,0.06); }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 99;
+    background: rgba(232,232,184,0.98);
+    backdrop-filter: blur(12px);
+    padding: 90px 5% 40px;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .mobile-menu.open { transform: translateY(0); }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--grey);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--black); }
+
+  .mobile-menu .mob-cta {
+    margin-top: 12px;
+    display: inline-flex;
+    justify-content: center;
+    background: var(--black);
+    color: var(--white) !important;
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-bottom: none !important;
+  }
+
+  .mobile-menu .mob-cta:hover { background: var(--green) !important; }
+
   /* ── MOBILE ── */
   @media (max-width: 768px) {
     nav ul { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: flex; }
     .designs-grid { grid-template-columns: 1fr 1fr; }
     .design-item { grid-column: span 1 !important; }
     .focus-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -828,7 +912,21 @@
     <li><a href="our-work.html" style="color: var(--black); font-weight:700;">Our Work</a></li>
     <li><a href="index.html#cta" class="nav-cta">Book a Call</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#services" class="mob-link">Services</a>
+  <a href="index.html#how" class="mob-link">How It Works</a>
+  <a href="index.html#why" class="mob-link">Why Us</a>
+  <a href="our-work.html" class="mob-link" style="font-weight:700; color: var(--black);">Our Work</a>
+  <a href="index.html#cta" class="mob-cta">Book a Call</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1056,7 +1154,7 @@
   <div class="focus-layout">
     <div class="reveal">
       <div class="section-label">Our Approach</div>
-      <h2 class="section-heading" style="color: var(--white);">What we<br>focus on</h2>
+      <h2 class="section-heading" style="color: var(--black);">What we<br>focus on</h2>
       <p class="focus-intro">Good design isn't about complexity. It's about making your business look credible and making it easy for customers to choose you.</p>
     </div>
 
@@ -1107,12 +1205,14 @@
     </div>
     <div class="footer-contact">
       <h4>Get in Touch</h4>
-      <a href="mailto:hello@visiomedia.co.za">
+      <a href="mailto:visiomedia.za@gmail.com">
         <div class="contact-icon">✉</div>
-        hello@visiomedia.co.za
+        visiomedia.za@gmail.com
       </a>
       <a href="https://wa.me/27814633459" target="_blank" rel="noopener noreferrer">
-        <div class="contact-icon">✆</div>
+        <div class="contact-icon" style="background:#31303059;">
+          <img src="logos/whatsapplogo.png" alt="WhatsApp" style="width:18px;height:18px;object-fit:contain;">
+        </div>  
         WhatsApp Us
       </a>
     </div>
@@ -1140,6 +1240,26 @@
   }, { threshold: 0.1 });
 
   reveals.forEach(el => observer.observe(el));
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
 
 </body>
