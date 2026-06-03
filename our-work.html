@@ -391,6 +391,38 @@
 
   .btn-view:hover .btn-view-arrow { transform: translateX(3px); }
 
+  /* ── WEBSITE SUB-SECTIONS ── */
+  .subsection-label {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .subsection-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: rgba(0,0,0,0.07);
+    border-radius: 100px;
+    padding: 6px 16px;
+    white-space: nowrap;
+  }
+
+  .subsection-desc {
+    font-size: 13px;
+    color: var(--newgrey);
+    font-style: italic;
+  }
+
+  .demo-type {
+    color: #7a6030 !important;
+    background: rgba(122,96,48,0.10) !important;
+  }
+
   /* ── DESIGNS / POSTERS ── */
   #designs { background: var(--black); }
   #designs .section-heading { color: var(--white); }
@@ -1139,125 +1171,32 @@
     <p class="section-desc">Each website is designed with one goal in mind: helping the business owner get more leads and look professional online.</p>
   </div>
 
-  <div class="projects-grid">
-    <!-- Project 1 -->
+  <!-- CLIENT WEBSITES -->
+  <div class="subsection-label reveal">
+    <span class="subsection-tag">✦ Client Websites</span>
+    <p class="subsection-desc">Live websites built and delivered for real clients.</p>
+  </div>
+
+  <div class="projects-grid" style="margin-bottom: 72px;">
+
+    <!-- Continuum VS -->
     <div class="project-card reveal">
       <div class="project-thumb">
-        <img src="images/venomfit.png" alt="VenomFit Website Preview">
-        <div class="browser-bar">
-          <div class="browser-dot r"></div>
-          <div class="browser-dot y"></div>
-          <div class="browser-dot g"></div>
-          <div class="browser-url"></div>
-        </div>
-        <div class="browser-content">VENOMFIT</div>
+        <img src="images/continuumvs.png" alt="Continuum VS Website Preview">
       </div>
       <div class="project-info">
-        <span class="project-type">Landing Page</span>
-        <div class="project-title">VenomFit</div>
+        <span class="project-type">Client Website</span>
+        <div class="project-title">Continuum VS</div>
         <p class="project-desc">
-          A high-conversion landing page for VenomFit, designed to turn visitors into committed members through clear messaging, strong visual identity, and a streamlined sign-up experience.
+          A professional website for Continuum VS, crafted to clearly communicate their services, establish credibility, and convert visitors into engaged clients.
         </p>
-        <a href="https://tebogo-matseding.github.io/venomfit-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+        <a href="https://continuumvs.co.za" target="_blank" rel="noopener noreferrer" class="btn-view">
           View Website <span class="btn-view-arrow">→</span>
         </a>
       </div>
     </div>
 
-    <!-- Project 2 -->
-    <div class="project-card reveal">
-      <div class="project-thumb">
-        <img src="images/tastesosweet.png" alt="TasteSoSweet Website Preview">
-        <div class="browser-bar">
-          <div class="browser-dot r"></div>
-          <div class="browser-dot y"></div>
-          <div class="browser-dot g"></div>
-          <div class="browser-url"></div>
-        </div>
-        <div class="browser-content">TASTESOSWEET</div>
-      </div>
-      <div class="project-info">
-        <span class="project-type">Business Website</span>
-        <div class="project-title">TasteSoSweet</div>
-        <p class="project-desc">
-          A vibrant, modern website designed for TasteSoSweet to showcase its brand, highlight its offerings, and create an engaging online experience that encourages customers to explore and place orders.
-        </p>
-        <a href="https://tebogo-matseding.github.io/tastesosweet-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
-          View Website <span class="btn-view-arrow">→</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-thumb">
-        <img src="images/summitedge.PNG" alt="Summit Edge Website Preview">
-        <div class="browser-bar">
-          <div class="browser-dot r"></div>
-          <div class="browser-dot y"></div>
-          <div class="browser-dot g"></div>
-          <div class="browser-url"></div>
-        </div>
-        <div class="browser-content">SUMMIT EDGE</div>
-      </div>
-      <div class="project-info">
-        <span class="project-type">Business Website</span>
-        <div class="project-title">Summit Edge</div>
-        <p class="project-desc">
-          A modern website for SummitEdge that showcases accounting, tax, and bookkeeping services with a clean, professional layout that builds trust and encourages client engagement.
-        </p>
-        <a href="https://tebogo-matseding.github.io/summitedge-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
-          View Website <span class="btn-view-arrow">→</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-thumb">
-        <img src="images/oakwell.PNG" alt="OakWell Website Preview">
-        <div class="browser-bar">
-          <div class="browser-dot r"></div>
-          <div class="browser-dot y"></div>
-          <div class="browser-dot g"></div>
-          <div class="browser-url"></div>
-        </div>
-        <div class="browser-content">OAK WELL</div>
-      </div>
-      <div class="project-info">
-        <span class="project-type">Business Website</span>
-        <div class="project-title">OakWell & Finch</div>
-        <p class="project-desc">
-          A modern, professional website for Oakwell & Finch Attorneys designed to clearly present its legal services, establish credibility, and encourage clients to engage with confidence.
-        </p>
-        <a href="https://tebogo-matseding.github.io/oakwell-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
-          View Website <span class="btn-view-arrow">→</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-thumb">
-        <img src="images/guardiangrid.PNG" alt="Guardian Grid SecurityWebsite Preview">
-        <div class="browser-bar">
-          <div class="browser-dot r"></div>
-          <div class="browser-dot y"></div>
-          <div class="browser-dot g"></div>
-          <div class="browser-url"></div>
-        </div>
-        <div class="browser-content">GUARDIAN GRID SECURITY</div>
-      </div>
-      <div class="project-info">
-        <span class="project-type">Business Website</span>
-        <div class="project-title">Guardian Grid Security</div>
-        <p class="project-desc">
-          A clean, professional website for a surveillance installation company designed to showcase its security solutions, build trust, and drive client enquiries.
-        </p>
-        <a href="https://tebogo-matseding.github.io/guardiangridsecurity-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
-          View Website <span class="btn-view-arrow">→</span>
-        </a>
-      </div>
-    </div>
-    
-    <!-- Project 3 -->
+    <!-- TebogoMTech -->
     <div class="project-card reveal">
       <div class="project-thumb">
         <img src="images/tebogomtech.png" alt="TebogoMTech Website Preview">
@@ -1270,7 +1209,7 @@
         <div class="browser-content">TEBOGOMTECH</div>
       </div>
       <div class="project-info">
-        <span class="project-type">Portfolio Website</span>
+        <span class="project-type">Client Website</span>
         <div class="project-title">TebogoMTech</div>
         <p class="project-desc">
           A personal portfolio website designed to showcase technical projects, certifications, and skills while building credibility and positioning as a professional in tech and digital solutions.
@@ -1280,6 +1219,136 @@
         </a>
       </div>
     </div>
+
+  </div>
+
+  <!-- DEMO PROJECTS -->
+  <div class="subsection-label reveal">
+    <span class="subsection-tag">◎ Demo Projects</span>
+    <p class="subsection-desc">Concept websites built to showcase what's possible for different industries.</p>
+  </div>
+
+  <div class="projects-grid">
+    <!-- VenomFit -->
+    <div class="project-card reveal">
+      <div class="project-thumb">
+        <img src="images/venomfit.png" alt="VenomFit Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">VENOMFIT</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type demo-type">Demo — Landing Page</span>
+        <div class="project-title">VenomFit</div>
+        <p class="project-desc">
+          A high-conversion landing page concept for a fitness brand, designed to turn visitors into committed members through clear messaging, strong visual identity, and a streamlined sign-up experience.
+        </p>
+        <a href="https://tebogo-matseding.github.io/venomfit-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Demo <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- TasteSoSweet -->
+    <div class="project-card reveal">
+      <div class="project-thumb">
+        <img src="images/tastesosweet.png" alt="TasteSoSweet Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">TASTESOSWEET</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type demo-type">Demo — Business Website</span>
+        <div class="project-title">TasteSoSweet</div>
+        <p class="project-desc">
+          A vibrant, modern website concept for a confectionery brand, showcasing how an engaging online presence can encourage customers to explore and place orders.
+        </p>
+        <a href="https://tebogo-matseding.github.io/tastesosweet-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Demo <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Summit Edge -->
+    <div class="project-card reveal">
+      <div class="project-thumb">
+        <img src="images/summitedge.PNG" alt="Summit Edge Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">SUMMIT EDGE</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type demo-type">Demo — Business Website</span>
+        <div class="project-title">Summit Edge</div>
+        <p class="project-desc">
+          A concept website for an accounting and bookkeeping firm, demonstrating how a clean, professional layout builds trust and encourages client engagement.
+        </p>
+        <a href="https://tebogo-matseding.github.io/summitedge-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Demo <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- OakWell & Finch -->
+    <div class="project-card reveal">
+      <div class="project-thumb">
+        <img src="images/oakwell.PNG" alt="OakWell Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">OAK WELL</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type demo-type">Demo — Business Website</span>
+        <div class="project-title">OakWell & Finch</div>
+        <p class="project-desc">
+          A concept website for a law firm, showing how legal services can be presented with clarity and credibility to encourage prospective clients to reach out with confidence.
+        </p>
+        <a href="https://tebogo-matseding.github.io/oakwell-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Demo <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Guardian Grid Security -->
+    <div class="project-card reveal">
+      <div class="project-thumb">
+        <img src="images/guardiangrid.PNG" alt="Guardian Grid Security Website Preview">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url"></div>
+        </div>
+        <div class="browser-content">GUARDIAN GRID SECURITY</div>
+      </div>
+      <div class="project-info">
+        <span class="project-type demo-type">Demo — Business Website</span>
+        <div class="project-title">Guardian Grid Security</div>
+        <p class="project-desc">
+          A concept website for a surveillance installation company, demonstrating how security services can be showcased professionally to build trust and drive client enquiries.
+        </p>
+        <a href="https://tebogo-matseding.github.io/guardiangridsecurity-website/" target="_blank" rel="noopener noreferrer" class="btn-view">
+          View Demo <span class="btn-view-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
